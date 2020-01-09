@@ -9,7 +9,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Invalid search. Please try again.', undefined)
         } else {
-            const data = `${body.daily.data[0].summary} It is currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability}% chance of rain.`
+            const data = `${body.daily.data[0].summary} It is currently ${body.currently.temperature} degrees out. The High/Low Temperature for the day is: ${body.daily.data[0].temperatureMax} / ${body.daily.data[0].temperatureMin} degrees. The current Wind Speed is: ${body.currently.windSpeed} MPH. There is a ${body.currently.precipProbability}% chance of rain.`
             callback(undefined, data)
         }
     })
